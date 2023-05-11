@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+#id
+spring:
+  application:
+    name: gateway
+
+#url
+eureka:
+  client:
+#    register-with-eureka: false
+#    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    account:
+      path: /account-api/**
+      serviceId: account
+#      stripPrefix: false
+
+#ribbon:
+#  eureka:
+#    enabled: false
